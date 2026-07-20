@@ -1,0 +1,9 @@
+{
+  "name": "Plano de Treino",
+  "short_name": "Treino",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0C0C0C",
+  "theme_color": "#0C0C0C",
+  "description": "Plano de treino personalizado — Mai a Dez 2026"
+}
