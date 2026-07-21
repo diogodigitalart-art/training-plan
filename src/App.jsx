@@ -16,13 +16,13 @@ const recommended={
 const task=(title,start,duration,type,detail="")=>({id:uid(),title,start,duration,type,detail,enabled:true});
 
 const defaultWeek={
- 0:[task("Futebol — Rodovia","09:00",180,"football","Confirmar hora real entre 08:00 e 10:00"),task("Almoço","13:30",30,"meal"),task("Leitura","21:00",20,"reading")],
- 1:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Musculação A","17:00",50,"strength"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 2:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
- 3:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Musculação B","17:00",50,"strength"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 4:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
- 5:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Recuperação / margem","17:00",30,"recovery"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 6:[task("Musculação C","11:00",50,"strength"),task("Almoço","13:30",30,"meal"),task("Leitura","20:30",20,"reading")]
+ 0:[task("Futebol — Rodovia","09:00",180,"football","Confirmar hora real entre 08:00 e 10:00"),task("Abdominais — seguir app","12:15",10,"abs","Fazer apenas se a app indicar treino"),task("Almoço","13:30",30,"meal"),task("Leitura","21:00",20,"reading")],
+ 1:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Musculação A","17:00",50,"strength"),task("Abdominais — seguir app","17:55",10,"abs","Fazer apenas se a app indicar treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 2:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Abdominais — seguir app","18:45",10,"abs","Fazer apenas se a app indicar treino"),task("Futebol","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
+ 3:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Musculação B","17:00",50,"strength"),task("Abdominais — seguir app","17:55",10,"abs","Fazer apenas se a app indicar treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 4:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Abdominais — seguir app","18:45",10,"abs","Fazer apenas se a app indicar treino"),task("Futebol","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
+ 5:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Musculação C","17:00",50,"strength"),task("Abdominais — seguir app","17:55",10,"abs","Fazer apenas se a app indicar treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 6:[task("Musculação D","11:00",50,"strength"),task("Abdominais — seguir app","11:55",10,"abs","Fazer apenas se a app indicar treino"),task("Almoço","13:30",30,"meal"),task("Leitura","20:30",20,"reading")]
 };
 
 const defaultWorkouts={
@@ -41,11 +41,19 @@ const defaultWorkouts={
   {name:"Core",sets:2,reps:"8–15",rest:60}
  ]},
  C:{name:"Musculação C",duration:50,exercises:[
-  {name:"Step-up ou leg press",sets:3,reps:"8–12",rest:90},
-  {name:"Supino inclinado",sets:3,reps:"8–12",rest:90},
-  {name:"Remada unilateral",sets:3,reps:"8–12",rest:90},
-  {name:"Posterior da coxa",sets:2,reps:"10–15",rest:75},
-  {name:"Core",sets:2,reps:"8–15",rest:60}
+  {name:"Exercício 1 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 2 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 3 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 4 — consultar app",sets:2,reps:"Conforme app",rest:75}
+ ]},
+ D:{name:"Musculação D",duration:50,exercises:[
+  {name:"Exercício 1 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 2 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 3 — consultar app",sets:3,reps:"Conforme app",rest:90},
+  {name:"Exercício 4 — consultar app",sets:2,reps:"Conforme app",rest:75}
+ ]},
+ ABS:{name:"Treino abdominal",duration:10,exercises:[
+  {name:"Abrir a app de abdominais",sets:1,reps:"Seguir o treino indicado",rest:0}
  ]}
 };
 
@@ -66,7 +74,7 @@ export default function App(){
  const pct=tasks.length?Math.round(count/tasks.length*100):0;
  const next=tasks.find(t=>!completed[t.id]);
  const remaining=tasks.filter(t=>!completed[t.id]).reduce((a,t)=>a+Number(t.duration||0),0);
- const weekTraining=useMemo(()=>Object.values(week).flat().filter(t=>t.type==="strength"||t.type==="football"),[week]);
+ const weekTraining=useMemo(()=>Object.values(week).flat().filter(t=>t.type==="strength"||t.type==="football"||t.type==="abs"),[week]);
 
  const saveWeek=v=>{setWeekState(v);save("momentum-simple-week",v)};
  const saveWorkouts=v=>{setWorkoutsState(v);save("momentum-simple-workouts",v)};
@@ -106,10 +114,10 @@ export default function App(){
   </main>}
 
   {tab==="training"&&<main>
-   <section className="workoutTabs">{Object.keys(workouts).map(k=><button className={selectedWorkout===k?"active":""} onClick={()=>setSelectedWorkout(k)} key={k}>Treino {k}</button>)}</section>
+   <section className="workoutTabs">{Object.keys(workouts).map(k=><button className={selectedWorkout===k?"active":""} onClick={()=>setSelectedWorkout(k)} key={k}>{k==="ABS"?"Abdominais":`Treino ${k}`}</button>)}</section>
    <section className="workoutHero"><small>TREINO SELECIONADO</small><h2>{workouts[selectedWorkout].name}</h2><p>Duração recomendada: {workouts[selectedWorkout].duration} minutos</p></section>
    <div className="exerciseList">{workouts[selectedWorkout].exercises.map((e,i)=><article key={i}><div className="exerciseNum">{i+1}</div><div><input value={e.name} onChange={x=>updateExercise(i,"name",x.target.value)}/><div className="exerciseMeta"><label>Séries<input type="number" value={e.sets} onChange={x=>updateExercise(i,"sets",x.target.value)}/></label><label>Repetições<input value={e.reps} onChange={x=>updateExercise(i,"reps",x.target.value)}/></label><label>Descanso<input type="number" value={e.rest} onChange={x=>updateExercise(i,"rest",x.target.value)}/><span>seg</span></label></div></div></article>)}</div>
-   <section className="tip"><b>Regra do treino</b><p>Termina aos 55 minutos. Consistência primeiro, perfeição depois.</p></section>
+   <section className="tip"><b>Regra do treino</b><p>Segue os exercícios indicados na tua app. Usa o Momentum para saber quando treinar e quanto tempo reservar.</p></section>
   </main>}
 
   {tab==="settings"&&<main>
@@ -122,7 +130,7 @@ export default function App(){
 
   <nav><button className={tab==="today"?"active":""} onClick={()=>setTab("today")}><span>⌂</span>Hoje</button><button className={tab==="week"?"active":""} onClick={()=>setTab("week")}><span>▦</span>Semana</button><button className={tab==="training"?"active":""} onClick={()=>setTab("training")}><span>◆</span>Treino</button><button className={tab==="settings"?"active":""} onClick={()=>setTab("settings")}><span>⚙</span>Ajustes</button></nav>
 
-  {editing&&<div className="overlay" onClick={()=>setEditing(null)}><section className="modal" onClick={e=>e.stopPropagation()}><div className="modalHead"><h2>{editing.id?"Editar atividade":"Nova atividade"}</h2><button onClick={()=>setEditing(null)}>×</button></div><label>Nome<input value={editing.title} onChange={e=>setEditing({...editing,title:e.target.value})}/></label><div className="two"><label>Hora<input type="time" value={editing.start} onChange={e=>setEditing({...editing,start:e.target.value})}/></label><label>Duração<input type="number" value={editing.duration} onChange={e=>setEditing({...editing,duration:e.target.value})}/></label></div><label>Tipo<select value={editing.type} onChange={e=>setEditing({...editing,type:e.target.value})}><option value="strength">Musculação</option><option value="football">Futebol</option><option value="meal">Refeição</option><option value="work">Trabalho</option><option value="reading">Leitura</option><option value="anchor">Sono / acordar</option><option value="other">Outro</option></select></label><label>Nota<input value={editing.detail||""} onChange={e=>setEditing({...editing,detail:e.target.value})}/></label><button className="primary" onClick={saveTask}>Guardar</button>{editing.id&&<button className="danger" onClick={deleteTask}>Eliminar atividade</button>}</section></div>}
+  {editing&&<div className="overlay" onClick={()=>setEditing(null)}><section className="modal" onClick={e=>e.stopPropagation()}><div className="modalHead"><h2>{editing.id?"Editar atividade":"Nova atividade"}</h2><button onClick={()=>setEditing(null)}>×</button></div><label>Nome<input value={editing.title} onChange={e=>setEditing({...editing,title:e.target.value})}/></label><div className="two"><label>Hora<input type="time" value={editing.start} onChange={e=>setEditing({...editing,start:e.target.value})}/></label><label>Duração<input type="number" value={editing.duration} onChange={e=>setEditing({...editing,duration:e.target.value})}/></label></div><label>Tipo<select value={editing.type} onChange={e=>setEditing({...editing,type:e.target.value})}><option value="strength">Musculação</option><option value="football">Futebol</option><option value="abs">Abdominais</option><option value="meal">Refeição</option><option value="work">Trabalho</option><option value="reading">Leitura</option><option value="anchor">Sono / acordar</option><option value="other">Outro</option></select></label><label>Nota<input value={editing.detail||""} onChange={e=>setEditing({...editing,detail:e.target.value})}/></label><button className="primary" onClick={saveTask}>Guardar</button>{editing.id&&<button className="danger" onClick={deleteTask}>Eliminar atividade</button>}</section></div>}
  </div>
 }
 
