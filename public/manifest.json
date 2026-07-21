@@ -1,0 +1,10 @@
+{
+  "name": "Momentum",
+  "short_name": "Momentum",
+  "description": "Sistema pessoal de rotina, treino, projetos e revisão semanal.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0C0C0C",
+  "theme_color": "#0C0C0C",
+  "lang": "pt-PT"
+}
