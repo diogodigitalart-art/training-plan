@@ -11,19 +11,32 @@ const uid=()=>Math.random().toString(36).slice(2,9);
 const task=(title,start,duration,type,detail="")=>({id:uid(),title,start,duration,type,detail,enabled:true});
 
 const recommended={wake:"07:00",breakfast:"07:45",lunch:"13:30",dinner:"19:30",sleep:"23:00"};
+const cardio=()=>task("Passadeira ou bicicleta","07:10",30,"cardio","Ritmo leve a moderado. Reduzir ou parar se surgirem tonturas.");
 const defaultWeek={
- 0:[task("Jogo de futebol — Rodovia","09:00",180,"football","Confirmar hora semanal: normalmente entre 08:00 e 10:00"),task("Almoço","13:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 1:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Peitoral e tríceps","18:00",75,"strength","Abrir a app de treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 2:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol ou caminhada","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
- 3:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Ombros e abdominais","18:00",75,"strength","Abrir as apps de treino e abdominais"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 4:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol ou caminhada","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
- 5:[task("Acordar","07:00",5,"anchor"),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Pernas e glúteos","18:00",75,"strength","Abrir a app de treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
- 6:[task("Costas e bíceps","18:00",75,"strength","Abrir a app de treino"),task("Almoço","13:30",30,"meal"),task("Leitura","20:30",20,"reading"),task("Dormir","23:00",5,"anchor")]
+ 0:[task("Acordar","07:00",5,"anchor"),cardio(),task("Jogo de futebol — Rodovia","09:00",180,"football","Confirmar hora semanal: normalmente entre 08:00 e 10:00"),task("Almoço","13:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 1:[task("Acordar","07:00",5,"anchor"),cardio(),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Peitoral e tríceps","18:00",75,"strength","Abrir a app de treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 2:[task("Acordar","07:00",5,"anchor"),cardio(),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol ou caminhada","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
+ 3:[task("Acordar","07:00",5,"anchor"),cardio(),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Ombros e abdominais","18:00",75,"strength","Abrir as apps de treino e abdominais"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 4:[task("Acordar","07:00",5,"anchor"),cardio(),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Futebol ou caminhada","19:30",120,"football","Fim variável"),task("Jantar / recuperação","21:45",30,"meal"),task("Dormir","23:00",5,"anchor")],
+ 5:[task("Acordar","07:00",5,"anchor"),cardio(),task("Pequeno-almoço","07:45",20,"meal"),task("Boutique","10:00",240,"work"),task("Almoço","13:30",30,"meal"),task("Pernas e glúteos","18:00",75,"strength","Abrir a app de treino"),task("Jantar","19:30",30,"meal"),task("Leitura","21:00",20,"reading"),task("Dormir","23:00",5,"anchor")],
+ 6:[task("Acordar","07:00",5,"anchor"),cardio(),task("Almoço","13:30",30,"meal"),task("Costas e bíceps","18:00",75,"strength","Abrir a app de treino"),task("Leitura","20:30",20,"reading"),task("Dormir","23:00",5,"anchor")]
+};
+
+const migrateWeek=(stored)=>{
+ const source=stored&&typeof stored==="object"?stored:defaultWeek;
+ const out={};
+ for(let d=0;d<7;d++){
+  const list=Array.isArray(source[d])?[...source[d]]:[...defaultWeek[d]];
+  if(!list.some(x=>x.title==="Acordar")) list.push(task("Acordar","07:00",5,"anchor"));
+  if(!list.some(x=>x.title==="Passadeira ou bicicleta")) list.push(cardio());
+  out[d]=list;
+ }
+ return out;
 };
 
 export default function App(){
  const [tab,setTab]=useState("today");
- const [week,setWeekState]=useState(()=>load("momentum-v13-week",defaultWeek));
+ const [week,setWeekState]=useState(()=>migrateWeek(load("momentum-v13-week",defaultWeek)));
  const [anchors,setAnchorsState]=useState(()=>load("momentum-v13-anchors",recommended));
  const [done,setDoneState]=useState(()=>load("momentum-v13-done",{}));
  const [selectedDay,setSelectedDay]=useState(new Date().getDay());
