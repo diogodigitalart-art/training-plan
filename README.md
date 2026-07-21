@@ -87,3 +87,10 @@ Máquinas rodam: elíptica, remo, bicicleta.
 ### Desafio Abdominal
 300 dias, padrão 3 treino + 1 descanso.
 5 blocos: Iniciante×2 → Intermédio → Avançado×2.
+
+## Momentum V5
+- ciclo de execução de 12 semanas
+- resultado principal semanal
+- registo de restrições e compromissos da semana
+- score separado para negócio, corpo e aprendizagem
+- foco diário sugerido com base no que está em risco
