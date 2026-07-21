@@ -1,3 +1,3 @@
-# Momentum V8
+# Momentum V9
 
-Sistema operativo pessoal mobile-first com coach adaptativo, captura rápida, inbox de ideias, contingências, agenda, metas, ciclos de 12 semanas e progresso.
+Sistema operativo pessoal com check-in diário de prontidão, adaptação automática, agenda, objetivos, áreas de vida, progresso, coach e cópias de segurança.
