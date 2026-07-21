@@ -1,19 +1,16 @@
-# Momentum V6
+# Momentum V7
 
 Sistema operativo pessoal mobile-first.
-
-## Inclui
-- execução diária e contingências
-- semana editável e horários recomendados
-- agenda por data
-- ciclo de 12 semanas
-- metas mensuráveis
-- progresso e revisões
-- exportação/importação de dados
 
 ## Desenvolvimento
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+```bash
 npm run build
 ```
+
+A V7 acrescenta o cockpit das áreas de vida: Negócio, Corpo, Aprendizagem e Finanças, com direção, marco, próxima ação, evidência e score.
