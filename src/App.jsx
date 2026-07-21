@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const DAYS=["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
 const pad=n=>String(n).padStart(2,"0");
@@ -41,6 +41,18 @@ export default function App(){
  const [done,setDoneState]=useState(()=>load("momentum-v13-done",{}));
  const [selectedDay,setSelectedDay]=useState(new Date().getDay());
  const [editing,setEditing]=useState(null);
+
+ useEffect(()=>{
+  save("momentum-v13-week",week);
+ },[week]);
+
+ useEffect(()=>{
+  save("momentum-v13-anchors",anchors);
+ },[anchors]);
+
+ useEffect(()=>{
+  save("momentum-v13-done",done);
+ },[done]);
  const date=dateKey();
  const dow=new Date().getDay();
  const tasks=(week[dow]||[]).filter(x=>x.enabled).sort((a,b)=>toMin(a.start)-toMin(b.start));
