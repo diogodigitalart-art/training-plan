@@ -1,3 +1,3 @@
-# Momentum V9
+# Momentum V10
 
-Sistema operativo pessoal com check-in diário de prontidão, adaptação automática, agenda, objetivos, áreas de vida, progresso, coach e cópias de segurança.
+Centro físico integrado: treino, medidas, recuperação e nutrição básica.
